@@ -197,6 +197,7 @@ puts "Press enter to start"
 response = gets.chomp
 end
 
+intro
 start(deck)
 
 
