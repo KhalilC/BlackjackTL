@@ -14,11 +14,10 @@ suits.each do |suit|
   end
 end
 
-#creates a hash where each card is the key and the point value is the value, Aces are set to 11
+#creates a hash where each card is the key and the point value is the value
 def set_value(deck)
 deck.each do |card|
   other_values = ["2","3","4","5","6","7","8","9"]
-  face_values = ["J","Q", "K"]
   if card[0] == '1'
     $points[card] = 10
   elsif other_values.include?(card[0])
