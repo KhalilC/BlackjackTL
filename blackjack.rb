@@ -89,6 +89,7 @@ def deal_dealer(hand, deck, dealertotal, playertotal)
       dealertotal = calculate_total(hand)
       dealertotal = ace_check(hand, dealertotal)
       print "\nDealers's cards are: \n", hand, "total: ", dealertotal, "\n"
+      puts "hi"
     end
    end
    return dealertotal 
@@ -114,7 +115,7 @@ def ace_check(hand, total)
       end     
     end
 end
-  else
+  
     return total
 end
 
@@ -123,11 +124,22 @@ end
 # checks to see if the player has busted
 def is_busted(card_total)
   if card_total > 21
-    puts "Over 21.  BUSTED!"
+    puts "Over 21.  BUSTED!"   
   else
     return false
   end
 end
+
+def win_check(mytotal, dealercards, deck, dealertotal)
+  if mytotal == 21
+    puts "21.  That's Blackjack!"
+    dealertotal = deal_dealer(dealercards, deck, dealertotal, mytotal)
+    results(mytotal, dealertotal)
+    return 's'
+  end
+  return 'h'
+end
+
 
 
 def results(playertotal, dealertotal)
@@ -168,6 +180,7 @@ def play(mycards, deck, dealercards, mytotal, dealertotal)
     if choice == 'h'
       mytotal, mycards = deal_player(mycards, deck)
       busted = is_busted(mytotal)
+      choice = win_check(mytotal, dealercards, deck, dealertotal)
     elsif choice == 's'
       print "Your final hand is ", mycards, "total: ", mytotal, "\n"
       dealertotal = deal_dealer(dealercards, deck, dealertotal, mytotal)
