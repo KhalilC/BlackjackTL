@@ -89,7 +89,6 @@ def deal_dealer(hand, deck, dealertotal, playertotal)
       dealertotal = calculate_total(hand)
       dealertotal = ace_check(hand, dealertotal)
       print "\nDealers's cards are: \n", hand, "total: ", dealertotal, "\n"
-      puts "hi"
     end
    end
    return dealertotal 
